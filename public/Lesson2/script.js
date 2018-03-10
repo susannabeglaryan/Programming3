@@ -7,7 +7,7 @@ function genMatrix(w, h) {
             if (r < 20) r = 0;
             else if (r < 70) r = 1;
             else if (r < 85) r = 2;
-            else if (r < 96) r = 3;
+            else if (r < 95) r = 3;
             else if (r < 100) r = 4;
             matrix[y][x] = r;
         }
