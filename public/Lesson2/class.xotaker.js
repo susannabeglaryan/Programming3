@@ -1,7 +1,12 @@
 class Xotaker extends KendaniEak {
-    constructor(x, y, index){
+    constructor(x, y, index) {
         super(x, y, index);
         this.energy = Math.round(Math.random() * 8);
+    }
+
+    yntrelVandak(ch) {
+        // this.stanalNorKordinatner();
+        return super.yntrelVandak(ch);
     }
 
     stanalNorKordinatner() {
@@ -16,12 +21,6 @@ class Xotaker extends KendaniEak {
             [this.x + 1, this.y + 1]
         ];
     }
-
-    yntrelVandak(ch) {
-    //    this.stanalNorKordinatner();
-       return super.yntrelVandak(ch);
-   }
-
 
     sharjvel() {
         var vand = random(this.yntrelVandak(0));

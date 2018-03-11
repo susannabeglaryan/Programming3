@@ -25,7 +25,7 @@ function setup() {
     matrix = genMatrix(w, h);
     createCanvas(side * w, side * h);
     background("#acacac");
-    frameRate(5);
+    frameRate(15);
     for (var y in matrix) {
         for (var x in matrix[y]) {
             if (matrix[y][x] == 1) {
@@ -68,7 +68,7 @@ function draw() {
     }
 
     for (var i in grassArr) {
-        grassArr[i].mul();
+        grassArr[i].bazmanal();
     }
 
     for (var i in xotakerArr) {
@@ -83,7 +83,7 @@ function draw() {
         gishatichArr[i].mahanal();
     }
 
-    for(var i in xotakerGishatichArr) {
+    for (var i in xotakerGishatichArr) {
         xotakerGishatichArr[i].bazmanal();
         xotakerGishatichArr[i].utelXot();
         xotakerGishatichArr[i].utelXotaker();

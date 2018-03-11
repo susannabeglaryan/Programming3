@@ -1,10 +1,10 @@
 class Grass extends KendaniEak {
 
-    mul(){
+    bazmanal() {
         this.multiply++;
         this.direction = random(this.yntrelVandak(0));
-        if(this.multiply >= 8 && this.direction){
-            var newGrass = new Grass(this.direction[0],this.direction[1],this.index);
+        if (this.multiply >= 8 && this.direction) {
+            var newGrass = new Grass(this.direction[0], this.direction[1], this.index);
             newGrass.parentX = this.x;
             newGrass.parentY = this.y;
             grassArr.push(newGrass);

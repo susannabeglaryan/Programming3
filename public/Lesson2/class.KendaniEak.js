@@ -18,7 +18,7 @@ class KendaniEak {
         ];
 
     }
-   
+
     yntrelVandak(ch) {
         var found = [];
         for (var i in this.directions) {
