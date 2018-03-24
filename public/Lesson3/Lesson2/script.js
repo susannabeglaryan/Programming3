@@ -20,10 +20,25 @@ var w = 30;
 var h = 30;
 var side = 24;
 var grassArr = [], xotakerArr = [], gishatichArr = [], xotakerGishatichArr = [];
+var seasons = ["Winter", "Spring", "Summer", "Autumn"];
+season = "";
+var index = 3;
+
+
+season = seasons[index];
+setInterval(function () {
+    if (index < 3) {
+        index++;
+    }
+    else {
+        index = 0;
+    }
+    season = seasons[index];
+}, 5000);
 
 function setup() {
     matrix = genMatrix(w, h);
-    createCanvas(side * w, side * h);
+    createCanvas(side * w, (side * h + 40));
     background("#acacac");
     frameRate(15);
     for (var y in matrix) {
@@ -42,27 +57,67 @@ function setup() {
             }
         }
     }
+
+
+
+
 }
 
 function draw() {
     background("#acacac");
     for (var y in matrix) {
         for (var x in matrix[y]) {
-            if (matrix[y][x] == 0) {
-                fill("#acacac");
+            switch (season) {
+                case "Winter":
+                    if (matrix[y][x] == 0)
+                        fill("#acacac");
+                    else if (matrix[y][x] == 1)
+                        fill("white");
+                    else if (matrix[y][x] == 2)
+                        fill("yellow");
+                    else if (matrix[y][x] == 3)
+                        fill("red");
+                    else if (matrix[y][x] = 4)
+                        fill("black");
+                        break;
+                case "Spring":
+                    if (matrix[y][x] == 0)
+                        fill("#acacac");
+                    else if (matrix[y][x] == 1)
+                        fill("#479447");
+                    else if (matrix[y][x] == 2)
+                        fill("yellow");
+                    else if (matrix[y][x] == 3)
+                        fill("red");
+                    else if (matrix[y][x] = 4)
+                        fill("black");
+                        break;
+                case "Summer":
+                    if (matrix[y][x] == 0)
+                        fill("#acacac");
+                    else if (matrix[y][x] == 1)
+                        fill("#207320");
+                    else if (matrix[y][x] == 2)
+                        fill("yellow");
+                    else if (matrix[y][x] == 3)
+                        fill("red");
+                    else if (matrix[y][x] = 4)
+                        fill("black");
+                        break;
+                case "Autumn":
+                    if (matrix[y][x] == 0)
+                        fill("#acacac");
+                    else if (matrix[y][x] == 1)
+                        fill("#ad6001");
+                    else if (matrix[y][x] == 2)
+                        fill("yellow");
+                    else if (matrix[y][x] == 3)
+                        fill("red");
+                    else if (matrix[y][x] = 4)
+                        fill("black");
+                        break;
             }
-            else if (matrix[y][x] == 1) {
-                fill("green");
-            }
-            else if (matrix[y][x] == 2) {
-                fill("yellow");
-            }
-            else if (matrix[y][x] == 3) {
-                fill("red");
-            }
-            else if (matrix[y][x] = 4) {
-                fill("black");
-            }
+
             rect(x * side, y * side, side, side);
         }
     }
@@ -89,5 +144,9 @@ function draw() {
         xotakerGishatichArr[i].utelXotaker();
         xotakerGishatichArr[i].mahanal();
     }
+
+    fill("black")
+    textSize(32);
+    text(season, 10, 750);
 
 }
