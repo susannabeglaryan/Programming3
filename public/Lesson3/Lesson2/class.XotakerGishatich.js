@@ -4,6 +4,23 @@ class XotakerGishatich extends KendaniEak {
         this.energy = Math.round(Math.random() * 10);
     }
 
+    changeSpeed() {
+        switch (season) {
+            case "Spring":
+                this.speed = 6;
+                break;
+            case "Summer":
+                this.speed = 9;
+                break;
+            case "Autumn":
+                this.speed = 12;
+                break;
+            default:
+                this.speed = 15;
+                break;
+        }
+    }
+
     yntrelVandak(ch) {
         // this.stanalNorKordinatner();
         var found = [];
@@ -32,6 +49,7 @@ class XotakerGishatich extends KendaniEak {
     }
 
     sharjvel() {
+        this.changeSpeed();
         var vand = random(this.yntrelVandak(0));
         if (vand && this.multiply >= this.speed / 2) {
             this.energy--;
@@ -42,6 +60,7 @@ class XotakerGishatich extends KendaniEak {
     }
 
     utelXotaker() {
+        this.changeSpeed();
         this.energy--;
         var vand = random(this.yntrelVandak(2));
         if (vand && this.multiply >= this.speed / 2) {
@@ -59,6 +78,7 @@ class XotakerGishatich extends KendaniEak {
     }
 
     utelXot() {
+        this.changeSpeed();
         this.energy--;
         var vand = random(this.yntrelVandak(1));
         if (vand && this.multiply >= this.speed / 2) {
@@ -76,6 +96,7 @@ class XotakerGishatich extends KendaniEak {
     }
 
     bazmanal() {
+        this.changeSpeed();
         var vand = random(this.yntrelVandak(0));
         if (vand && this.energy >= this.speed) {
             this.energy = 1;
@@ -85,6 +106,7 @@ class XotakerGishatich extends KendaniEak {
     }
 
     mahanal() {
+        this.changeSpeed();
         if (this.energy <= -(this.speed / 2)) {
             matrix[this.y][this.x] = 0;
             for (var i in xotakerGishatichArr) {

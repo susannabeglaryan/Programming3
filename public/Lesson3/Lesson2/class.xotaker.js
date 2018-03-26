@@ -4,8 +4,26 @@ class Xotaker extends KendaniEak {
         this.energy = Math.round(Math.random() * 8);
     }
 
+    changeSpeed() {
+        switch (season) {
+            case "Spring":
+                this.speed = 4;
+                break;
+            case "Summer":
+                this.speed = 4;
+                break;
+            case "Autumn":
+                this.speed = 7;
+                break;
+            default:
+                this.speed = 8;
+                break;
+        }
+    }
+
+
     yntrelVandak(ch) {
-        // this.stanalNorKordinatner();
+        this.stanalNorKordinatner();
         return super.yntrelVandak(ch);
     }
 
@@ -23,6 +41,7 @@ class Xotaker extends KendaniEak {
     }
 
     sharjvel() {
+        this.changeSpeed();
         var vand = random(this.yntrelVandak(0));
         if (vand && this.multiply >= this.speed / 4) {
             this.energy--;
@@ -34,6 +53,7 @@ class Xotaker extends KendaniEak {
     }
 
     utel() {
+        this.changeSpeed();
         this.energy--;
         this.multiply++;
         var vand = random(this.yntrelVandak(1));
@@ -53,6 +73,7 @@ class Xotaker extends KendaniEak {
     }
 
     bazmanal() {
+        this.changeSpeed();
         var vand = random(this.yntrelVandak(0));
         if (vand && this.energy >= this.speed) {
             this.energy = 1;
@@ -62,6 +83,7 @@ class Xotaker extends KendaniEak {
     }
 
     mahanal() {
+        this.changeSpeed();
         if (this.energy <= -(this.speed / 2)) {
             matrix[this.y][this.x] = 0;
             for (var i in xotakerArr) {

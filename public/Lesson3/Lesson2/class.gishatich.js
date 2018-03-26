@@ -4,6 +4,23 @@ class Gishatich extends KendaniEak {
         this.energy = Math.round(Math.random() * 16);
     }
 
+    changeSpeed() {
+        switch (season) {
+            case "Spring":
+                this.speed = 3;
+                break;
+            case "Summer":
+                this.speed = 5;
+                break;
+            case "Autumn":
+                this.speed = 7;
+                break;
+            default:
+                this.speed = 9;
+                break;
+        }
+    }
+
     yntrelVandak(ch) {
         // this.stanalNorKordinatner();
         return super.yntrelVandak(ch);
@@ -23,6 +40,7 @@ class Gishatich extends KendaniEak {
     }
 
     sharjvel() {
+        this.changeSpeed();
         var vand = random(this.yntrelVandak(0));
         if (vand && this.multiply >= this.speed / 2) {
             this.energy--;
@@ -33,6 +51,7 @@ class Gishatich extends KendaniEak {
     }
 
     utel() {
+        this.changeSpeed();
         this.energy--;
         var vand = random(this.yntrelVandak(2));
         if (vand && this.multiply >= this.speed / 2) {
@@ -50,6 +69,7 @@ class Gishatich extends KendaniEak {
     }
 
     bazmanal() {
+        this.changeSpeed();
         var vand = random(this.yntrelVandak(0));
         if (vand && this.energy >= this.speed) {
             this.energy = 1;
@@ -59,6 +79,7 @@ class Gishatich extends KendaniEak {
     }
 
     mahanal() {
+        this.changeSpeed();
         if (this.energy <= -(this.speed / 2)) {
             matrix[this.y][this.x] = 0;
             for (var i in gishatichArr) {

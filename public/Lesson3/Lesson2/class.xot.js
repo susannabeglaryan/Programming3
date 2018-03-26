@@ -17,15 +17,16 @@ class Grass extends KendaniEak {
     bazmanal() {
         switch (season) {
             case "Spring":
-                this.mul(8);
+                this.mul(1);
                 break;
             case "Summer":
-                this.mul(6);
+                this.mul(3);
                 break;
             case "Autumn":
-                this.mul(4);
-                break;    
+                this.mul(5);
+                break;
             default:
+                this.mul(8);
                 break;
         }
     }
