@@ -2,21 +2,22 @@ class Gishatich extends KendaniEak {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = Math.round(Math.random() * 16);
+        this.serArakan = (Math.round((Math.random() * 1)) == 0) ? true : false;
     }
 
     changeSpeed() {
         switch (season) {
             case "Spring":
-                this.speed = 3;
-                break;
-            case "Summer":
-                this.speed = 5;
-                break;
-            case "Autumn":
                 this.speed = 7;
                 break;
-            default:
+            case "Summer":
+                this.speed = 8;
+                break;
+            case "Autumn":
                 this.speed = 9;
+                break;
+            default:
+                this.speed = 10;
                 break;
         }
     }

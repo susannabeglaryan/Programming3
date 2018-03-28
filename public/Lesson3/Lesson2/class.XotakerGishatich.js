@@ -2,27 +2,28 @@ class XotakerGishatich extends KendaniEak {
     constructor(x, y, index) {
         super(x, y, index);
         this.energy = Math.round(Math.random() * 10);
+        this.serArakan = (Math.round((Math.random() * 1)) == 0) ? true : false;
     }
 
     changeSpeed() {
         switch (season) {
             case "Spring":
-                this.speed = 6;
+                this.speed = 5;
                 break;
             case "Summer":
-                this.speed = 9;
+                this.speed = 6;
                 break;
             case "Autumn":
-                this.speed = 12;
+                this.speed = 7;
                 break;
             default:
-                this.speed = 15;
+                this.speed = 8;
                 break;
         }
     }
 
     yntrelVandak(ch) {
-        // this.stanalNorKordinatner();
+        this.stanalNorKordinatner();
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
@@ -82,7 +83,7 @@ class XotakerGishatich extends KendaniEak {
         this.energy--;
         var vand = random(this.yntrelVandak(1));
         if (vand && this.multiply >= this.speed / 2) {
-            this.energy += this.speed / 4;
+            this.energy += this.speed / 3;
             matrix[this.y][this.x] = 0;
             this.x = vand[0]; this.y = vand[1];
             matrix[this.y][this.x] = 4;

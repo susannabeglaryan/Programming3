@@ -1,7 +1,6 @@
 class Grass extends KendaniEak {
 
     mul(speed) {
-        console.log("mul method")
         this.multiply++;
         this.direction = random(this.yntrelVandak(0));
         if (this.multiply >= speed && this.direction) {
