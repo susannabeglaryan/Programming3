@@ -76,15 +76,16 @@ class Xotaker extends KendaniEak {
     bazmanal() {
         this.changeSpeed();
         var vand = random(this.yntrelVandak(0));
-        // var zuyg = random(this.yntrelVandak(2));
-        // console.log(xotakerArr[i].x == zuyg[0]);
-        // for (var i = 0; i < xotakerArr.length; i++) {
-        //     console.log(xotakerArr[i].x == zuyg[0]);
-        //     if(xotakerArr[i].x == zuyg[0] && xotakerArr[i].y == zuyg[1])
-        //         var potencialZuyg = xotakerArr[i];
-        // }
+        var zuyg = random(this.yntrelVandak(2));
+        for (var i in xotakerArr) {
+            // console.log(xotakerArr[i].x == zuyg[0]);
+            if (zuyg && vand) {
+                if (xotakerArr[i].x == zuyg[0] && xotakerArr[i].y == zuyg[1])
+                    var potencialZuyg = xotakerArr[i];
+            }
+        }
 
-        if (vand && this.energy >= this.speed /* && potencialZuyg.serArakan != this.serArakan */) {
+        if (vand && zuyg && this.energy >= this.speed && potencialZuyg.serArakan != this.serArakan) {
             this.energy = 1;
             var newxotaker = new Xotaker(vand[0], vand[1], 2);
             xotakerArr.push(newxotaker);

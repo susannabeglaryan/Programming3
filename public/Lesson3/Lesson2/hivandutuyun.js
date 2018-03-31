@@ -1,11 +1,17 @@
 class Hivandutyun extends KendaniEak {
+
     mul(speed) {
         var vand = random(this.yntrelVandak(2));
         if (vand) {
-            this.x = vand[0]; this.y = vand[1];
-            matrix[this.y][this.x] = 5;
+            var newhivandutyun = new Hivandutyun(vand[0], vand[1], 5);
+            hivandutyunArr.push(newhivandutyun);
+            for (var i in xotakerArr) {
+                if (xotakerArr[i].x == vand[0] && xotakerArr[i].y == vand[1]) {
+                    xotakerArr.splice(i, 1);
+                }
+            }
         }
-        else this.mahanal();
+
     }
 
     bazmanal() {
@@ -35,6 +41,6 @@ class Hivandutyun extends KendaniEak {
     }
 
     mahanal() {
-        setTimeout(this.mah(), 3000);
+        if (frameCount % 15 == 0) this.mah();
     }
 }

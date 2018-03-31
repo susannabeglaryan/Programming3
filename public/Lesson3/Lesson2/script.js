@@ -1,3 +1,5 @@
+socket = io.connect('http://localhost:3000');
+
 function genMatrix(w, h) {
     var matrix = [];
     for (var y = 0; y < h; y++) {
@@ -69,6 +71,8 @@ setInterval(function () {
     season = seasons[index];
 }, 3000);
 
+grassCount = 0, xotakerCount = 0, gishatichCount = 0, xotakerGishatichCount = 0, hivandutyunCount = 0;
+
 function setup() {
     matrix = genMatrix(w, h);
     createCanvas(side * w, (side * h + 40));
@@ -78,18 +82,23 @@ function setup() {
         for (var x in matrix[y]) {
             if (matrix[y][x] == 1) {
                 grassArr.push(new Grass(x * 1, y * 1, 1));
+                grassCount++;
             }
             else if (matrix[y][x] == 2) {
                 xotakerArr.push(new Xotaker(x * 1, y * 1, 2));
+                xotakerCount++;
             }
             else if (matrix[y][x] == 3) {
                 gishatichArr.push(new Gishatich(x * 1, y * 1, 3));
+                gishatichCount++;
             }
             else if (matrix[y][x] == 4) {
                 xotakerGishatichArr.push(new XotakerGishatich(x * 1, y * 1, 4));
+                xotakerGishatichCount++;
             }
             else if (matrix[y][x] == 5) {
                 hivandutyunArr.push(new Hivandutyun(x * 1, y * 1, 5));
+                hivandutyunCount++;
             }
         }
     }
@@ -150,7 +159,7 @@ function draw() {
                             fill("#272727");
                     }
                 }
-                else if(matrix[y][x] == 5)
+                else if (matrix[y][x] == 5)
                     fill("#0000ff");
 
 
@@ -190,6 +199,13 @@ function draw() {
         textSize(32);
         text(season, 10, 750);
 
+        var statistics = {
+            "Grass Count": grassCount,
+        }
+
+        if (frameCount % 60 == 0) {
+            socket.emit("send statistics", JSON.stringify(statistics));
+        }
     }
 
 }

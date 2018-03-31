@@ -32,3 +32,21 @@ app.get("/", function(req, res) {
 app.listen(3000, function() {
     console.log("Example is running on port 3000");
 });
+
+//************************/
+// var fs = require('fs');
+
+
+// function main() {
+//     if(frameCount % 60 == 0)
+//     fs.writeFileSync("statistics.json", JSON.stringify(statistics));
+// }
+
+// var statistics = {
+//     "Խոտեռի քանակ": grassCount,
+//     "last_name": "Beglaryan",
+//     "age": 20,
+//     "tumo_student": true
+// }
+
+// main();
